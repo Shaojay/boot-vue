@@ -14,6 +14,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+
 /**
  * 配置主数据源
  * @Configuration 表明这是一个配置类
@@ -22,13 +23,15 @@ import javax.sql.DataSource;
  * @since 1.0
  * Date 2019/7/30 22:23
  */
+
 @Configuration
 @MapperScan(basePackages = {"com.jay.boot.mysql.*.mapper"}, sqlSessionFactoryRef = "firstSqlSessionFactory")
 public class FirstDataSourceConfig {
-    
-    /**
+
+/**
      * 默认数据源
      */
+
     @ConfigurationProperties(prefix = "spring.datasource.first")
     @Bean("firstDataSource")
     @Primary
@@ -53,3 +56,4 @@ public class FirstDataSourceConfig {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 }
+

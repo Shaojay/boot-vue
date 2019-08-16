@@ -2,7 +2,7 @@
 <mapper namespace="com.jay.boot.mysql.index.mapper.UserMapper">
 
     <select id="findUserById" resultType="com.jay.boot.mysql.index.entity.User">
-        select id, username, password from user
+        select id, username, password from user where id = #{id}
     </select>
     <select id="findUserByName" resultType="com.jay.boot.mysql.index.entity.User">
         select id, username, password from user where username = #{username}

@@ -1,3 +1,4 @@
+
 package com.jay.boot.common.config.db;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +13,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
+
 /**
  * 另一数据源
  *
@@ -19,6 +21,7 @@ import javax.sql.DataSource;
  * @since 1.0
  * Date 2019/7/30 23:08
  */
+
 @Configuration
 @MapperScan(basePackages = {"com.jay.boot.oracle.*.mapper"}, sqlSessionFactoryRef = "secondSqlSessionFactory")
 public class SecondDataSourceConfig {
@@ -43,3 +46,4 @@ public class SecondDataSourceConfig {
         return new SqlSessionTemplate(sqlSessionFactory());
     }
 }
+

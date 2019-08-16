@@ -1,15 +1,14 @@
-/*
 package com.jay.boot.job;
 
 import org.quartz.DisallowConcurrentExecution;
-import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.PersistJobDataAfterExecution;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 
 import java.io.Serializable;
 import java.util.Date;
 
-*/
 /**
  * ClassName ChickenJob
  * Job 的实例要到该执行它们的时候才会实例化出来。每次 Job 被执行，一个新的 Job 实例会被创建。
@@ -19,13 +18,15 @@ import java.util.Date;
  * @author shao
  * @since 1.0
  * Date 2019/7/29 0:41
- *//*
-
+ */
+@PersistJobDataAfterExecution
 @DisallowConcurrentExecution
-public class ChickenJob implements Job, Serializable {
+public class ChickenJob extends QuartzJobBean implements Serializable {
+    
     @Override
-    public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+       
+        // 业务逻辑
         System.out.println(new Date() + "今晚吃鸡");
     }
 }
-*/
